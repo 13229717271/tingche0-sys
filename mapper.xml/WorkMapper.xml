@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lab.thelab.mapper.WorksMapper">
+
+    <select id="queryWorksList" resultType="Works">
+             select * from works
+    </select>
+    <select id="queryWorksById" resultType="Works">
+        select * from works where id = #{id}
+    </select>
+    <select id="queryWorksBygtime" resultType="Works">
+        select * from works where gtime = #{gtime}
+    </select>
+    <insert id="addWorks" parameterType="Works">
+        insert into works (id,worknum,fid,wcont,gtime,week,wtime)
+        values (#{id},#{worknum},#{fid},#{wcont},#{gtime},#{week},#{wtime})
+    </insert>
+    <update id="updateWorks" parameterType="Works">
+        update works set worknum=#{worknum},fid=#{fid},wcont=#{wcont},gtime=#{gtime},week=#{week},wtime=#{wtime} where id=#{id}
+    </update>
+    <delete id="deleteWorks" parameterType="int">
+        delete from Works where id =#{id}
+    </delete>
+
+
+</mapper>

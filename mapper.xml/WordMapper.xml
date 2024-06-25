@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lab.thelab.mapper.WordMapper">
+
+    <select id="queryWordList" resultType="Word">
+             select * from word
+    </select>
+
+    <select id="queryWordById" resultType="Word">
+        select * from word where wid=#{wid}
+    </select>
+
+    <insert id="addWord" parameterType="Word">
+        insert into word (wid,content,people,tim)
+        values (#{wid},#{content},#{people},#{tim})
+    </insert>
+    <update id="updateWord" parameterType="Word">
+        update plan set wid=#{wid},content=#{content},people=#{people},tim=#{tim},applicant=#{applicant} where pid = #{pid}
+    </update>
+
+    <delete id="deleteWord" parameterType="String">
+        delete from word where wid =#{wid}
+    </delete>
+
+
+</mapper>
